@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>采集工作台 · 虚构报表门户</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<!-- 登录 -->
+<div id="login-overlay">
+  <div class="login-box">
+    <h2>采集工作台</h2>
+    <p class="muted">虚构环境 · 不连接任何真实平台</p>
+    <label>账号
+      <select id="login-user">
+        <option value="alice">alice（分析师 艾丽丝）</option>
+        <option value="bob">bob（分析师 鲍勃）</option>
+      </select>
+    </label>
+    <label>密码 <input id="login-pass" type="password" placeholder="alice123 / bob123"></label>
+    <button id="login-btn">登录</button>
+    <p id="login-err" class="err"></p>
+  </div>
+</div>
+
+<header>
+  <h1>采集工作台</h1>
+  <div id="who"></div>
+  <div id="chaos-panel">
+    <span class="chaos-title">故障注入</span>
+    <label><input type="checkbox" id="chaos-receipt"> 提交回执丢失</label>
+    <label><input type="checkbox" id="chaos-notify"> 下载通知丢失</label>
+    <button id="chaos-expire">使门户会话过期</button>
+    <button id="logout-btn">退出登录</button>
+  </div>
+</header>
+
+<main>
+  <!-- 左：任务 -->
+  <section id="left">
+    <h3>新建采集任务</h3>
+    <div id="create-form">
+      <label>组织 <select id="new-org"></select></label>
+      <label>账期 <select id="new-period"></select></label>
+      <label>口径 <select id="new-caliber"></select></label>
+      <button id="create-btn">创建并交给后台执行</button>
+    </div>
+    <h3>任务列表</h3>
+    <div id="task-list"></div>
+  </section>
+
+  <!-- 右：任务详情 -->
+  <section id="right">
+    <div id="no-task" class="muted">← 选择或创建一个任务</div>
+    <div id="task-detail" style="display:none">
+      <div id="task-head"></div>
+      <div id="conds"></div>
+      <div id="lock-bar"></div>
+      <div id="page-mirror"></div>
+      <div id="results"></div>
+      <div id="timeline"></div>
+    </div>
+  </section>
+
+  <!-- 底：门户透视 -->
+  <section id="portal-view">
+    <h3>门户透视（调试视图，展示门户侧真实状态）</h3>
+    <div id="portal-content"></div>
+  </section>
+</main>
+
+<div id="toast"></div>
+<script src="/app.js"></script>
+</body>
+</html>
